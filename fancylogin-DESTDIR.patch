@@ -1,0 +1,106 @@
+diff -ur fancylogin-0.99.7/Makefile fancylogin-0.99.7.pld/Makefile
+--- fancylogin-0.99.7/Makefile	Mon Oct 30 21:31:07 2000
++++ fancylogin-0.99.7.pld/Makefile	Tue Jan  9 21:56:02 2001
+@@ -42,7 +42,7 @@
+ 	$(MAKE) -C mingetty install
+ 
+ documentation_install:
+-	$(MAKE) -C doc install_doc
++	$(MAKE) -C doc 
+ 
+ manpage_install:
+ 	$(MAKE) -C doc install_man
+diff -ur fancylogin-0.99.7/doc/Makefile fancylogin-0.99.7.pld/doc/Makefile
+--- fancylogin-0.99.7/doc/Makefile	Mon Oct 30 14:19:18 2000
++++ fancylogin-0.99.7.pld/doc/Makefile	Tue Jan  9 21:44:38 2001
+@@ -1,10 +1,5 @@
+-MANDIR=/usr/man
+-DOCDIR=/usr/doc
+-
+-install_doc:
+-	rm -rf $(DOCDIR)/fancylogin
+-	mkdir $(DOCDIR)/fancylogin 
+-	cp -a * $(DOCDIR)/fancylogin
++MANDIR=$(DESTDIR)/usr/share/man
++DOCDIR=$(DESTDIR)/usr/share/doc
+ 
+ install_man:
+ 	cp fancylogin.1 $(MANDIR)/man1
+diff -ur fancylogin-0.99.7/example/Makefile fancylogin-0.99.7.pld/example/Makefile
+--- fancylogin-0.99.7/example/Makefile	Mon Oct 30 21:34:02 2000
++++ fancylogin-0.99.7.pld/example/Makefile	Tue Jan  9 21:43:47 2001
+@@ -1,5 +1,5 @@
+ install:
+-	rm -f /etc/default.flt
+-	cp default.flt /etc
+-	rm -f /etc/login.logging
+-	cp login.logging /etc
++	rm -f $(DESTDIR)/etc/default.flt
++	cp default.flt $(DESTDIR)/etc
++	rm -f $(DESTDIR)/etc/login.logging
++	cp login.logging $(DESTDIR)/etc
+diff -ur fancylogin-0.99.7/fltcreate/Makefile fancylogin-0.99.7.pld/fltcreate/Makefile
+--- fancylogin-0.99.7/fltcreate/Makefile	Tue Oct 31 19:17:02 2000
++++ fancylogin-0.99.7.pld/fltcreate/Makefile	Tue Jan  9 21:46:00 2001
+@@ -1,7 +1,7 @@
+ CC=gcc
+-LIBTERMCAP=-ltermcap
++LIBTERMCAP=-lncurses
+ LIBREADLINE=-lreadline
+-USRBINDIR=/usr/bin
++USRBINDIR=$(DESTDIR)/usr/bin
+ 
+ 
+ 
+Only in fancylogin-0.99.7.pld/fltcreate: fltcreate
+diff -ur fancylogin-0.99.7/login/Makefile fancylogin-0.99.7.pld/login/Makefile
+--- fancylogin-0.99.7/login/Makefile	Tue Oct 31 19:16:35 2000
++++ fancylogin-0.99.7.pld/login/Makefile	Tue Jan  9 22:17:22 2001
+@@ -1,5 +1,5 @@
+ CC=gcc
+-CFLAGS= -ggdb -Wall -O2 -ansi
++CFLAGS="$(CFLAGS) -ansi"
+ LIBCRYPT=-lcrypt
+ BINDIR=/bin
+ DOCS=/usr/doc/fancylogin-0.99.7-alpha2
+@@ -36,7 +36,7 @@
+ 	$(CC) $(CFLAGS) -c signal_handle.c
+ 
+ system_logon.o: system_logon.c
+-	$(CC) $(CFLAGS) -c system_logon.c
++	$(CC) $(CFLAGS) -ansi -c system_logon.c
+ 
+ link:
+ 	$(CC) $(MODULES) $(LDFLAGS) $(LIBNCURSES) $(LIBCRYPT) $(PAMMODULES) -o fancylogin
+@@ -45,5 +45,5 @@
+ 	rm -f $(MODULES) fancylogin
+ 
+ install:
+-	rm -f $(BINDIR)/fancylogin
+-	cp fancylogin $(BINDIR)
++	rm -f $(DESTDIR)$(BINDIR)/fancylogin
++	cp fancylogin $(DESTDIR)$(BINDIR)
+Only in fancylogin-0.99.7.pld/login: after_login.o
+Only in fancylogin-0.99.7.pld/login: authenticated.o
+Only in fancylogin-0.99.7.pld/login: emergency.o
+Only in fancylogin-0.99.7.pld/login: fancy.o
+Only in fancylogin-0.99.7.pld/login: fancylogin
+Only in fancylogin-0.99.7.pld/login: log_message.o
+Only in fancylogin-0.99.7.pld/login: login.o
+Only in fancylogin-0.99.7.pld/login: login_permissions.o
+Only in fancylogin-0.99.7.pld/login: md5crypt.o
+Only in fancylogin-0.99.7.pld/login: signal_handle.o
+Only in fancylogin-0.99.7.pld/login: strace
+Only in fancylogin-0.99.7.pld/login: system_logon.o
+diff -ur fancylogin-0.99.7/mingetty/Makefile fancylogin-0.99.7.pld/mingetty/Makefile
+--- fancylogin-0.99.7/mingetty/Makefile	Mon Oct 30 14:15:43 2000
++++ fancylogin-0.99.7.pld/mingetty/Makefile	Tue Jan  9 21:46:28 2001
+@@ -10,5 +10,5 @@
+ 	rm -f *.o mingetty
+ 
+ install: all
+-	rm -f /sbin/mingetty.fancylogin
+-	cp mingetty $(SBINDIR)/mingetty.fancylogin
++	rm -f $(DESTDIR)/sbin/mingetty.fancylogin
++	cp mingetty $(DESTDIR)$(SBINDIR)/mingetty.fancylogin
+Only in fancylogin-0.99.7.pld/mingetty: mingetty
