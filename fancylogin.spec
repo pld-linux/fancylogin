@@ -6,6 +6,7 @@ Release:	1
 License:	GPL
 Group:		Applications/System
 Source0:	http://fancylogin.sourceforge.net/data/%{name}-%{version}.tar.gz
+# Source0-md5:	3d2810451e7936fb8c02eed0be53a12b
 Patch0:		%{name}-DESTDIR.patch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 URL:		http://fancylogin.sourceforge.net/
