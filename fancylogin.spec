@@ -23,7 +23,7 @@ fancylogin jest jednym z wielu potê¿nych programow typu login
 dostepnych dla Linuksa. Moze wszystko co twój stary program login to
 znaczy obs³uguje pliki shadow, sprawdzanie u¿ytkownika, terminala i
 czasu. Dodaje te¿ kilka innych mo¿liwo¶ci dla logowania logowañ oraz
-udostêpnia tematy do kontrolowania wygl±du login-u.
+udostêpnia motywy do kontrolowania wygl±du login-u.
 
 %prep
 %setup -q
