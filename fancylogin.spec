@@ -1,5 +1,5 @@
-Summary:	themeable login program for Linux
-Summary(pl):	Udziwniony program login dla linuxa
+Summary:	Themeable login program for Linux
+Summary(pl):	Udziwniony program login dla Linuksa
 Name:		fancylogin
 Version:	0.99.7
 Release:	1
