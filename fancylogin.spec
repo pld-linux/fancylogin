@@ -8,8 +8,8 @@ Group:		Applications/System
 Source0:	http://fancylogin.sourceforge.net/data/%{name}-%{version}.tar.gz
 # Source0-md5:	3d2810451e7936fb8c02eed0be53a12b
 Patch0:		%{name}-DESTDIR.patch
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 URL:		http://fancylogin.sourceforge.net/
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 fancylogin is one of the most powerful login programs available for
@@ -20,8 +20,8 @@ capabilities for logging logins and support for themes to control the
 login's look.
 
 %description -l pl
-fancylogin jest jednym z wielu potê¿nych programow typu login
-dostepnych dla Linuksa. Moze wszystko co twój stary program login to
+fancylogin jest jednym z wielu potê¿nych programów typu login
+dostêpnych dla Linuksa. Mo¿e wszystko co twój stary program login, to
 znaczy obs³uguje pliki shadow, sprawdzanie u¿ytkownika, terminala i
 czasu. Dodaje te¿ kilka innych mo¿liwo¶ci dla logowania logowañ oraz
 udostêpnia motywy do kontrolowania wygl±du loginu.
@@ -31,19 +31,19 @@ udostêpnia motywy do kontrolowania wygl±du loginu.
 %patch0 -p1
 
 %build
-%{__make} CFLAGS="%{rpmcflags}"
+%{__make} \
+	CFLAGS="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/{etc,bin,sbin,usr/{bin,share/man/man1}}
+install -d $RPM_BUILD_ROOT{%{_sysconfdir},/bin,/sbin,%{_bindir},%{_mandir}/man1}
 
-%{__make} install sampleconf DESTDIR=$RPM_BUILD_ROOT
+%{__make} install sampleconf \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-
 %doc doc/compiling.html doc/configuration.html doc/credits.html doc/docbook.css doc/faq.html doc/index.html doc/license.html doc/obtaining.html doc/stylesheet-images/caution.gif doc/stylesheet-images/home.gif doc/stylesheet-images/important.gif doc/stylesheet-images/next.gif doc/stylesheet-images/note.gif doc/stylesheet-images/prev.gif doc/stylesheet-images/tip.gif doc/stylesheet-images/toc-blank.gif doc/stylesheet-images/toc-minus.gif doc/stylesheet-images/toc-plus.gif doc/stylesheet-images/up.gif doc/stylesheet-images/warning.gif
-
 %attr(755,root,root) /bin/fancylogin
 %attr(755,root,root) /sbin/mingetty.fancylogin
 %{_sysconfdir}/default.flt
