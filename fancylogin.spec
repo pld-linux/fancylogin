@@ -5,8 +5,6 @@ Version:	0.99.7
 Release:	1
 License:	GPL
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Source0:	http://fancylogin.sourceforge.net/data/%{name}-%{version}.tar.gz
 Patch0:		%{name}-DESTDIR.patch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
