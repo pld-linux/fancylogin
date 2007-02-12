@@ -1,5 +1,5 @@
 Summary:	Themeable login program for Linux
-Summary(pl):	Udziwniony program login dla Linuksa
+Summary(pl.UTF-8):   Udziwniony program login dla Linuksa
 Name:		fancylogin
 Version:	0.99.7
 Release:	1
@@ -19,12 +19,12 @@ network-verification as done with HP-UX login, etc. It adds a lot of
 capabilities for logging logins and support for themes to control the
 login's look.
 
-%description -l pl
-fancylogin jest jednym z wielu potê¿nych programów typu login
-dostêpnych dla Linuksa. Mo¿e wszystko co twój stary program login, to
-znaczy obs³uguje pliki shadow, sprawdzanie u¿ytkownika, terminala i
-czasu. Dodaje te¿ kilka innych mo¿liwo¶ci dla logowania logowañ oraz
-udostêpnia motywy do kontrolowania wygl±du loginu.
+%description -l pl.UTF-8
+fancylogin jest jednym z wielu potÄ™Å¼nych programÃ³w typu login
+dostÄ™pnych dla Linuksa. MoÅ¼e wszystko co twÃ³j stary program login, to
+znaczy obsÅ‚uguje pliki shadow, sprawdzanie uÅ¼ytkownika, terminala i
+czasu. Dodaje teÅ¼ kilka innych moÅ¼liwoÅ›ci dla logowania logowaÅ„ oraz
+udostÄ™pnia motywy do kontrolowania wyglÄ…du loginu.
 
 %prep
 %setup -q
